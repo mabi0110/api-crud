@@ -25,13 +25,7 @@ public class JobOffer {
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "company_id")
-    @JsonIgnore
     private Company company;
-
-    @JsonProperty
-    String getCompanyName() {
-        return company.getName();
-    }
 
     public Long getId() {
         return id;
