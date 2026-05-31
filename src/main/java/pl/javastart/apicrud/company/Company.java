@@ -1,6 +1,7 @@
-package pl.javastart.apicrud;
+package pl.javastart.apicrud.company;
 
 import jakarta.persistence.*;
+import pl.javastart.apicrud.joboffer.JobOffer;
 
 import java.util.List;
 

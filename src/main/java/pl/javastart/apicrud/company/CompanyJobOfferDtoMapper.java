@@ -1,6 +1,7 @@
-package pl.javastart.apicrud;
+package pl.javastart.apicrud.company;
 
 import org.springframework.stereotype.Service;
+import pl.javastart.apicrud.joboffer.JobOffer;
 
 @Service
 public class CompanyJobOfferDtoMapper {

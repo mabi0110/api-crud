@@ -1,4 +1,4 @@
-package pl.javastart.apicrud;
+package pl.javastart.apicrud.company;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

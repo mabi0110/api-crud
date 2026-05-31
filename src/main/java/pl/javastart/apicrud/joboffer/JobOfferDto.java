@@ -1,4 +1,4 @@
-package pl.javastart.apicrud;
+package pl.javastart.apicrud.joboffer;
 
 import java.time.LocalDateTime;
 

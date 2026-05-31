@@ -1,9 +1,8 @@
-package pl.javastart.apicrud;
+package pl.javastart.apicrud.joboffer;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
+import pl.javastart.apicrud.company.Company;
 
 import java.time.LocalDateTime;
 

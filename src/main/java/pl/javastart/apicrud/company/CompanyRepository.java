@@ -1,4 +1,4 @@
-package pl.javastart.apicrud;
+package pl.javastart.apicrud.company;
 
 import org.springframework.data.repository.CrudRepository;
 
