@@ -1,6 +1,8 @@
 package pl.javastart.apicrud;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -23,7 +25,13 @@ public class JobOffer {
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "company_id")
+    @JsonIgnore
     private Company company;
+
+    @JsonProperty
+    String getCompanyName() {
+        return company.getName();
+    }
 
     public Long getId() {
         return id;
