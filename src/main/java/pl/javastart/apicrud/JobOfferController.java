@@ -9,15 +9,15 @@ import java.util.Optional;
 @RestController
 public class JobOfferController {
 
-    private final JobOfferRepository jobOfferRepository;
+    private final JobOfferService jobOfferService;
 
-    public JobOfferController(JobOfferRepository jobOfferRepository) {
-        this.jobOfferRepository = jobOfferRepository;
+    public JobOfferController(JobOfferService jobOfferService) {
+        this.jobOfferService = jobOfferService;
     }
 
 
     @GetMapping("/offers/{id}")
-    Optional<JobOffer> getJobOfferById(@PathVariable Long id) {
-        return jobOfferRepository.findById(id);
+    Optional<JobOfferDto> getJobOfferById(@PathVariable Long id) {
+        return jobOfferService.getJobOfferById(id);
     }
 }
