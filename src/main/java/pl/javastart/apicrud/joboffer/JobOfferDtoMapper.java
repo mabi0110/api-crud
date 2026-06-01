@@ -1,10 +1,19 @@
 package pl.javastart.apicrud.joboffer;
 
 import org.springframework.stereotype.Service;
+import pl.javastart.apicrud.company.Company;
+import pl.javastart.apicrud.company.CompanyRepository;
 
 
 @Service
 public class JobOfferDtoMapper {
+
+    private final CompanyRepository companyRepository;
+
+    public JobOfferDtoMapper(CompanyRepository companyRepository) {
+        this.companyRepository = companyRepository;
+
+    }
 
     JobOfferDto map(JobOffer jobOffer) {
         JobOfferDto jobOfferDto = new JobOfferDto();
@@ -20,5 +29,21 @@ public class JobOfferDtoMapper {
         jobOfferDto.setCompanyId(jobOffer.getCompany().getId());
         jobOfferDto.setCompanyName(jobOffer.getCompany().getName());
         return jobOfferDto;
+    }
+
+    JobOffer map(JobOfferDto jobOfferDto) {
+        JobOffer jobOffer = new JobOffer();
+        jobOffer.setId(jobOfferDto.getId());
+        jobOffer.setTitle(jobOfferDto.getTitle());
+        jobOffer.setDescription(jobOfferDto.getDescription());
+        jobOffer.setRequirements(jobOfferDto.getRequirements());
+        jobOffer.setDuties(jobOfferDto.getDuties());
+        jobOffer.setLocation(jobOfferDto.getLocation());
+        jobOffer.setMinSalary(jobOfferDto.getMinSalary());
+        jobOffer.setMaxSalary(jobOfferDto.getMaxSalary());
+        jobOffer.setDateAdded(jobOfferDto.getDateAdded());
+        Company company = companyRepository.findById(jobOfferDto.getCompanyId()).orElseThrow();
+        jobOffer.setCompany(company);
+        return jobOffer;
     }
 }
