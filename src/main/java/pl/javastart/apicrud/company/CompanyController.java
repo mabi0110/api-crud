@@ -6,6 +6,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/companies")
@@ -39,5 +40,14 @@ public class CompanyController {
                 .buildAndExpand(savedCompany.getId())
                 .toUri();
         return ResponseEntity.created(companyUri).body(savedCompany);
+    }
+
+    @PutMapping("/{id}")
+    ResponseEntity<?> replaceCompany(@PathVariable Long id, @RequestBody CompanyDto companyDto) {
+        Optional<CompanyDto> optionalCompanyDto = companyService.replaceCompany(id, companyDto);
+        if (optionalCompanyDto.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.noContent().build();
     }
 }
